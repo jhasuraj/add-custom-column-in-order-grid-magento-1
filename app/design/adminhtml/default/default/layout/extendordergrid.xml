@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <sales_order_grid_update_handle>
+        <reference name="sales_order.grid">
+            <action method="addColumnAfter">
+                <columnId>product_description</columnId>
+                <arguments>
+                    <header>Product Description</header>
+                    <index>product_description</index>
+                    <filter></filter>
+                    <renderer>Sigmacell_ExtendOrderGrid_Block_Adminhtml_Widget_Grid_Column_Renderer_Description</renderer> 
+                </arguments>
+                <after>grand_total</after>
+            </action>
+            <action method="addColumnAfter">
+                <columnId>product_sku</columnId>
+                <arguments>
+                    <header>Part Code</header>
+                    <index>product_sku</index>
+                    <filter></filter>
+                    <renderer>Sigmacell_ExtendOrderGrid_Block_Adminhtml_Widget_Grid_Column_Renderer_PartCode</renderer> 
+                </arguments>
+                <after>product_description</after>
+            </action>
+        </reference>
+    </sales_order_grid_update_handle>
+    <adminhtml_sales_order_grid>
+        <!-- apply layout handle defined above -->
+        <update handle="sales_order_grid_update_handle" />
+    </adminhtml_sales_order_grid>
+    <adminhtml_sales_order_index>
+        <!-- apply layout handle defined above -->
+        <update handle="sales_order_grid_update_handle" />
+    </adminhtml_sales_order_index>
+</layout>
